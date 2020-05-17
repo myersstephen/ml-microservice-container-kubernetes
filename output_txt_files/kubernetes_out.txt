@@ -1,1 +1,50 @@
-<paste log output from Kubernetes-mediated prediction, here>
+^C(.devops) DOPE >:) ./run_kubernetes.sh 
+Error from server (AlreadyExists): deployments.apps "machine-learning-api" already exists
+NAMESPACE     NAME                                     READY   STATUS    RESTARTS   AGE
+default       machine-learining-api                    1/1     Running   0          42m
+default       machine-learining-api-5f665f4f54-jz26d   1/1     Running   0          114m
+default       machine-learning-api-59f665fbd5-mrbw9    1/1     Running   0          5m9s
+kube-system   coredns-66bff467f8-d42c2                 1/1     Running   0          129m
+kube-system   coredns-66bff467f8-k7d68                 1/1     Running   0          129m
+kube-system   etcd-minikube                            1/1     Running   0          129m
+kube-system   kube-apiserver-minikube                  1/1     Running   0          129m
+kube-system   kube-controller-manager-minikube         1/1     Running   0          129m
+kube-system   kube-proxy-rzq86                         1/1     Running   0          129m
+kube-system   kube-scheduler-minikube                  1/1     Running   0          129m
+kube-system   storage-provisioner                      1/1     Running   0          129m
+Error from server (AlreadyExists): services "machine-learning-api" already exists
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+^CFound 2 pods, using pod/machine-learining-api
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 294-655-389
+[2020-05-17 20:13:24,584] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-05-17 20:13:24,695] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-05-17 20:13:24,785] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-05-17 20:13:24,804] INFO in app: output prediction: 
+[20.35373177134412]
+127.0.0.1 - - [17/May/2020 20:13:24] "POST /predict HTTP/1.1" 200 -
+[2020-05-17 20:17:14,238] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-05-17 20:17:14,272] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-05-17 20:17:14,314] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-05-17 20:17:14,328] INFO in app: output prediction: 
+[20.35373177134412]
+127.0.0.1 - - [17/May/2020 20:17:14] "POST /predict HTTP/1.1" 200 -
